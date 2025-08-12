@@ -1,7 +1,8 @@
+<!-- 启动页 -->
 <template>
 	<view class="splash-container">
-		<view class="skip">跳过</view>
-		<uni-swiper-dot :style="{ height: '50vh' }" :info="info" mode="round" :dotsStyles="dotsStyles" :current="currentIndex">
+		<view class="skip" @click="skip">跳过</view>
+		<uni-swiper-dot :info="info" mode="round" :dotsStyles="dotsStyles" :current="currentIndex">
 			<swiper class="swiper" :current="currentIndex" @change="changeSwiper">
 				<swiper-item>
 					<view class="swiper-item">
@@ -62,26 +63,32 @@ const nextSwiper = () => {
 	if (currentIndex.value < 2) {
 		currentIndex.value++;
 	} else {
-		console.log('跳转');
+		uni.navigateTo({
+			url: '/pages/index/login'
+		});
 	}
+};
+const skip = () => {
+	uni.navigateTo({
+		url: '/pages/index/login'
+	});
 };
 </script>
 
 <style scoped lang="scss">
-page {
-	background-color: #8d9f5e;
-}
 .splash-container {
 	position: relative;
-	padding-top: 15vh;
+	background-color: #8d9f5e;
+	height: 100vh;
 }
 .skip {
 	color: #ffffff;
 	text-align: right;
 	padding-right: 30rpx;
+	padding-top: 15vh;
 }
 .swiper {
-	height: 90%;
+	height: 50vh;
 }
 .swiper-item {
 	height: 100%;
