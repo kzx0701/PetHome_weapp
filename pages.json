@@ -1,4 +1,11 @@
 {
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+			"^t-(.*)": "tdesign-miniprogram/components/t-$1/t-$1.vue" // 保留其他组件配置
+		}
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/splash",

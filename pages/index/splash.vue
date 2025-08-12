@@ -1,47 +1,71 @@
 <template>
 	<view class="splash-container">
 		<view class="skip">跳过</view>
-		<swiper class="swiper">
-			<swiper-item>
-				<view class="swiper-item">
-					<image
-						class="swiper-image"
-						mode="aspectFit"
-						src="http://t0thhhqp2.hd-bkt.clouddn.com/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90/01%201.png?e=1754902617&token=w_xSY7nosVGTTL1lQnvTeLRGq78L4-drxlPRu_IN:IGqGwa93I5_hk52oRcLFqi2Llbc="
-					></image>
-					<view class="title">欢迎来到萌宠之家</view>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">
-					<image
-						class="swiper-image"
-						mode="aspectFit"
-						src="http://t0thhhqp2.hd-bkt.clouddn.com/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90/01%201.png?e=1754902617&token=w_xSY7nosVGTTL1lQnvTeLRGq78L4-drxlPRu_IN:IGqGwa93I5_hk52oRcLFqi2Llbc="
-					></image>
-					<view class="title">欢迎来到萌宠之家</view>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">
-					<image
-						class="swiper-image"
-						mode="aspectFit"
-						src="http://t0thhhqp2.hd-bkt.clouddn.com/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90/01%201.png?e=1754902617&token=w_xSY7nosVGTTL1lQnvTeLRGq78L4-drxlPRu_IN:IGqGwa93I5_hk52oRcLFqi2Llbc="
-					></image>
-					<view class="title">欢迎来到萌宠之家</view>
-				</view>
-			</swiper-item>
-		</swiper>
+		<uni-swiper-dot :style="{ height: '50vh' }" :info="info" mode="round" :dotsStyles="dotsStyles" :current="currentIndex">
+			<swiper class="swiper" :current="currentIndex" @change="changeSwiper">
+				<swiper-item>
+					<view class="swiper-item">
+						<image
+							class="swiper-image"
+							mode="aspectFit"
+							src="http://t0thhhqp2.hd-bkt.clouddn.com/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90/01%201.png?e=1754902617&token=w_xSY7nosVGTTL1lQnvTeLRGq78L4-drxlPRu_IN:IGqGwa93I5_hk52oRcLFqi2Llbc="
+						></image>
+						<view class="title">欢迎来到萌宠之家</view>
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item">
+						<image
+							class="swiper-image"
+							mode="aspectFit"
+							src="http://t0thhhqp2.hd-bkt.clouddn.com/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90/01%201.png?e=1754902617&token=w_xSY7nosVGTTL1lQnvTeLRGq78L4-drxlPRu_IN:IGqGwa93I5_hk52oRcLFqi2Llbc="
+						></image>
+						<view class="title">欢迎来到萌宠之家</view>
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item">
+						<image
+							class="swiper-image"
+							mode="aspectFit"
+							src="http://t0thhhqp2.hd-bkt.clouddn.com/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90/01%201.png?e=1754902617&token=w_xSY7nosVGTTL1lQnvTeLRGq78L4-drxlPRu_IN:IGqGwa93I5_hk52oRcLFqi2Llbc="
+						></image>
+						<view class="title">欢迎来到萌宠之家</view>
+					</view>
+				</swiper-item>
+			</swiper>
+		</uni-swiper-dot>
 		<view class="next-btn-container">
-			<view class="next-btn">
-				<uv-icon name="arrow-rightward" color="#ffffff"></uv-icon>
+			<view class="next-btn" @click="nextSwiper">
+				<uv-icon name="arrow-rightward" color="#ffffff" size="20"></uv-icon>
 			</view>
 		</view>
 	</view>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import uniSwiperDot from '@dcloudio/uni-ui/lib/uni-swiper-dot/uni-swiper-dot.vue';
+const info = ref([1, 2, 3]);
+const currentIndex = ref(0);
+const dotsStyles = {
+	backgroundColor: 'rgba(255, 255, 255, .3)',
+	border: '1px rgba(255, 255, 255, .3) solid',
+	color: '#fff',
+	selectedBackgroundColor: 'rgba(255, 255, 255, .9)',
+	selectedBorder: '1px rgba(255, 255, 255, .9) solid'
+};
+const changeSwiper = (e) => {
+	currentIndex.value = e.detail.current;
+};
+const nextSwiper = () => {
+	if (currentIndex.value < 2) {
+		currentIndex.value++;
+	} else {
+		console.log('跳转');
+	}
+};
+</script>
 
 <style scoped lang="scss">
 page {
@@ -57,7 +81,7 @@ page {
 	padding-right: 30rpx;
 }
 .swiper {
-	height: 40vh;
+	height: 90%;
 }
 .swiper-item {
 	height: 100%;
@@ -76,11 +100,12 @@ page {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 20rpx;
+	margin-top: 80rpx;
 	.next-btn {
-		background-color: red;
+		background: linear-gradient(45deg, #466100c7, #b5cb7b);
+		box-shadow: 0 0 5rpx rgba(0, 0, 0, 0.2);
 		border-radius: 50%;
-		padding: 20rpx;
+		padding: 35rpx;
 	}
 }
 </style>
