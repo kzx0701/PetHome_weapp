@@ -18,8 +18,38 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#ffffff",
+		"borderStyle": "white",
+		"backgroundColor": "#8d9f5e",
+		"list": [{
+			"pagePath": "pages/home/index",
+			"iconPath": "/static/icon/home.png",
+			"selectedIconPath": "/static/icon/home_selected.png",
+			"text": ""
+		}, {
+			"pagePath": "pages/profile/index",
+			"iconPath": "/static/icon/profile.png",
+			"selectedIconPath": "/static/icon/profile_selected.png",
+			"text": ""
+		}],
+
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
