@@ -47,8 +47,7 @@
 			"iconPath": "/static/icon/profile.png",
 			"selectedIconPath": "/static/icon/profile_selected.png",
 			"text": ""
-		}],
-
+		}]
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
