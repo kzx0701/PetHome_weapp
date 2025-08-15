@@ -30,6 +30,12 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/discover/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"tabBar": {
@@ -38,16 +44,24 @@
 		"borderStyle": "white",
 		"backgroundColor": "#8d9f5e",
 		"list": [{
-			"pagePath": "pages/home/index",
-			"iconPath": "/static/icon/home.png",
-			"selectedIconPath": "/static/icon/home_selected.png",
-			"text": ""
-		}, {
-			"pagePath": "pages/profile/index",
-			"iconPath": "/static/icon/profile.png",
-			"selectedIconPath": "/static/icon/profile_selected.png",
-			"text": ""
-		}]
+				"pagePath": "pages/home/index",
+				"iconPath": "/static/icon/home.png",
+				"selectedIconPath": "/static/icon/home_selected.png",
+				"text": ""
+			},
+			{
+				"pagePath": "pages/discover/index",
+				"iconPath": "/static/icon/discover.png",
+				"selectedIconPath": "/static/icon/discover_selected.png",
+				"text": ""
+			},
+			{
+				"pagePath": "pages/profile/index",
+				"iconPath": "/static/icon/profile.png",
+				"selectedIconPath": "/static/icon/profile_selected.png",
+				"text": ""
+			}
+		]
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
