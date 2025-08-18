@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@dcloudio/uni-ui": "^1.5.10"
+    "@dcloudio/uni-ui": "^1.5.10",
+    "pinia": "^3.0.3"
   }
 }
