@@ -22,10 +22,10 @@ const props = defineProps({
 	align-items: baseline;
 	padding: 20rpx 0;
 	.title {
-		font-size: 36rpx;
+		font-size: 30rpx;
 	}
 	.more {
-		font-size: 26rpx;
+		font-size: 24rpx;
 		color: #999;
 	}
 }

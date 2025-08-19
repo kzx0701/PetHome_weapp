@@ -1,9 +1,10 @@
 <!-- 首页 -->
 <template>
 	<view class="container">
-		<sideMenuVue @update:checked="handleToggleChange"></sideMenuVue>
-		<view class="home-container" :class="{ transformed: sideMenuStatus }">
+		<sideMenuVue @update:checked="handleToggleChange" :checked="sideMenuStatus"></sideMenuVue>
+		<view class="home-container" :class="{ transformed: sideMenuStatus }" @click.stop.prevent="closeSideMenu">
 			<view class="top-container">
+				<image src="/static/home_bg.png" class="home-bg" mode="aspectFit"></image>
 				<view class="search-container">
 					<uv-input
 						placeholder="查询宠物信息"
@@ -48,6 +49,13 @@ import { ref } from 'vue';
 // 侧边菜单状态
 const sideMenuStatus = ref(false);
 
+// 关闭侧边菜单
+const closeSideMenu = () => {
+	console.log('关闭侧边菜单');
+	sideMenuStatus.value = false;
+	uni.showTabBar();
+};
+
 // 处理侧边菜单开关状态变化
 const handleToggleChange = (newState) => {
 	// 捕获子组件传递的状态
@@ -70,26 +78,35 @@ const handleToggleChange = (newState) => {
 	background-color: #a1b275;
 	height: 100vh;
 	position: relative;
+	// 添加统一过渡效果
+	transition: transform 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+	.home-bg {
+		width: 100%;
+		height: 100%;
+	}
 	.top-container {
-		height: 20%;
+		height: 30%;
 		position: relative;
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 		.search-container {
-			position: absolute;
-			bottom: 20rpx;
 			width: 90%;
+			margin-bottom: 20rpx;
+			z-index: 5;
 		}
 	}
 	.content-container {
 		background-color: #ecebeb;
 		position: absolute;
 		bottom: 0;
-		height: 80%;
+		height: 70%;
 		width: -webkit-fill-available;
 		border-radius: 60rpx 60rpx 40rpx 40rpx;
 		padding: 0 30rpx;
 		.popular-container {
+			margin-top: 20rpx;
 			.scroll-container {
 				while: 100%;
 				white-space: nowrap;
@@ -98,7 +115,7 @@ const handleToggleChange = (newState) => {
 					align-items: center;
 					position: relative;
 					width: 30%;
-					height: 300rpx;
+					height: 280rpx;
 					border-radius: 20rpx;
 					margin-right: 10rpx;
 					overflow: hidden;
