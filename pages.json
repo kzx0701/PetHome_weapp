@@ -36,6 +36,14 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/profile/my-pets",
+			"style": {
+				"navigationBarTitleText": "我的宠物",
+				"navigationBarBackgroundColor": "#a1b275",
+				"navigationBarTextStyle": "white"
+			}
 		}
 	],
 	"tabBar": {

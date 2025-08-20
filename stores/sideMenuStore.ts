@@ -5,9 +5,9 @@ export const useSideMenuStore = defineStore('sideMenu', {
 	state: () => ({
 		sideMenuList: [
 			{
-				title: '添加宠物',
+				title: '我的宠物',
 				icon: 'plusempty',
-				path: '/home'
+				path: '/pages/profile/my-pets'
 			},
 			{
 				title: '我的收藏',

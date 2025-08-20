@@ -8,7 +8,7 @@
 				<uv-avatar text="李" shape="square"></uv-avatar>
 				<view class="userName">李四</view>
 			</view>
-			<view class="menu-item" v-for="(item, index) in sideMenuStore.sideMenuList" :key="index">
+			<view class="menu-item" v-for="(item, index) in sideMenuStore.sideMenuList" :key="index" @click="navigateTo(item.path)">
 				<uni-icons :type="item.icon" color="#bcc4a7" size="32"></uni-icons>
 				<view>{{ item.title }}</view>
 			</view>
@@ -43,6 +43,12 @@ const openSideMenu = () => {
 	emit('update:checked', isChecked.value);
 	uni.hideTabBar({
 		animation: true // 是否需要动画效果
+	});
+};
+// 路由跳转
+const navigateTo = (url) => {
+	uni.navigateTo({
+		url: url
 	});
 };
 </script>
