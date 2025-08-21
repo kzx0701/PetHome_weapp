@@ -7,14 +7,16 @@ export const useMyPetsStore = defineStore('myPets', {
 		petsList: [
 			{
 				name: '小黑',
-				type: '猫',
-				variety: '英短',
+				type: '狗',
+				variety: '金毛',
+				variety_icon: '/static/jinmao.png',
 				image: ''
 			},
 			{
 				name: '小黑',
-				type: '猫',
-				variety: '英短',
+				type: '狗',
+				variety: '金毛',
+				variety_icon: '/static/jinmao.png',
 				image: ''
 			}
 		]

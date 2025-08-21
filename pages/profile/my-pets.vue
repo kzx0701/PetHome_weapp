@@ -4,13 +4,16 @@
 			<image class="bg" src="/static/mypets_bg.png" mode="aspectFit"></image>
 		</view>
 		<view class="content-container">
-			<view class="pet-item">
+			<view class="pet-item" v-for="(item, index) in myPetsStore.petsList" :key="index">
 				<image src="/static/pet.png" class="pet-image" mode="aspectFill"></image>
 				<view class="pet-content">
-					<view class="pet-name">大黑</view>
-					<view class="pet-type">
+					<view class="pet-name">
+						<view class="name">大黑</view>
 						<uv-icon name="man" size="18" color="#8bbdec"></uv-icon>
-						<view class="pet-typeName">金毛</view>
+					</view>
+					<view class="pet-variety">
+						<image class="varietyImage" src="/static/jinmao.png"></image>
+						<view class="varietyName">金毛</view>
 					</view>
 					<view class="pet-desc">一只特立独行的狗</view>
 				</view>
@@ -23,7 +26,8 @@
 </template>
 
 <script setup>
-
+import { useMyPetsStore } from '../../stores/myPetsStore';
+const myPetsStore = useMyPetsStore();
 </script>
 
 <style scoped lang="scss">
@@ -50,6 +54,7 @@
 		.pet-item {
 			display: flex;
 			align-items: center;
+			margin-bottom: 20rpx;
 			.pet-image {
 				width: 200rpx;
 				height: 230rpx;
@@ -66,16 +71,25 @@
 				box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
 				padding: 20rpx 20rpx 20rpx 30rpx;
 				.pet-name {
-					font-weight: bold;
-				}
-				.pet-type {
 					display: flex;
-					align-items: baseline;
+					align-items: center;
 					gap: 10rpx;
-					.pet-typeName {
+					.name {
+						font-weight: bold;
+					}
+				}
+				.pet-variety {
+					display: flex;
+					align-items: center;
+					gap: 10rpx;
+					margin-top: 10rpx;
+					.varietyImage {
+						width: 30rpx;
+						height: 30rpx;
+					}
+					.varietyName {
 						color: #5a5a5a;
 						font-size: 24rpx;
-						margin-top: 10rpx;
 					}
 				}
 				.pet-desc {
